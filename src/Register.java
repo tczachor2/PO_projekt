@@ -16,6 +16,11 @@ public class Register {
             System.out.print("Typ Konta: ");
             int accountType = Utils.inputInt();
 
+            if(accountType != 0 && accountType != 1) {
+                System.out.print("Wybierz Liczbe z zakresu 0-1!: ");
+                accountType = Utils.inputInt();
+            }
+
             String loginQuery = "SELECT * FROM accounts WHERE Login = \""+ login +"\"";
             String query = "INSERT INTO `accounts` (`Id`, `Login`, `Password`, `AccountType`) VALUES (NULL, '" + login + "', '" + password + "', '" + accountType + "')";
 
